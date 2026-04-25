@@ -65,7 +65,7 @@ python eval_pap.py  --qwen_url <ckpt-path>     --output_json  <output_json>  --m
 ### AutoDAN-Turbo Attack
 
 ```bash
-cd PAP
+cd AutoDAN-Turbo
 # For Qwen models using vllm:
 python test.py --target_model qwen  --output_file <output_json>  --api_url <url-for-vllm>
 # For gpt model:
