@@ -49,16 +49,29 @@ python renellm_omni.py --data_path <path-to-json> --save_suffix <save-suffix> --
 python renellm_omni.py --data_path <path-to-json> --save_suffix <save-suffix> --attack_model io --api_url <ckpt-path>
 ```
 
-### Naive Attack
+### PAP Attack
 
 ```bash
-cd naive
+cd PAP
 # For Qwen models using vllm:
-python eval_naive_text.py --input_json <path-to-json> --output_json <output-json> --api_url <url-for-vllm> --model_name qwen
+python eval_pap.py  --qwen_url <url-for-vllm>  --output_json  <output-json>  --model_name qwen
 # For gpt model:
 export OPENAI_API_KEY="<your-api-key>"
-python eval_naive_text.py --input_json <path-to-json> --output_json <output_json> --api_url <url_for_vllm> --model_name gpt
+python eval_pap.py   --output_json <output-json>  --model_name gpt
 # For InteractiveOmni:
-python eval_naive_text.py --input_json <path-to-json> --output_json <output_json> --api_url <ckpt-path> --model_name io
+python eval_pap.py  --qwen_url <ckpt-path>     --output_json  <output_json>  --model_name io
+```
+
+### AutoDAN-Turbo Attack
+
+```bash
+cd PAP
+# For Qwen models using vllm:
+python test.py --target_model qwen  --output_file <output_json>  --api_url <url-for-vllm>
+# For gpt model:
+export OPENAI_API_KEY="<your-api-key>"
+python test.py --target_model gpt  --output_file <output_json>
+# For InteractiveOmni:
+python test.py --target_model interactiveomni  --output_file <output_json>  --api_url <ckpt-path>
 ```
 
