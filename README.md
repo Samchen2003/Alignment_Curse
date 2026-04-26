@@ -58,11 +58,11 @@ python renellm_omni.py --data_path <path-to-json> --save_suffix <save-suffix> --
 ```bash
 cd PAP
 # For Qwen models using vllm:
-python eval_pap.py  --qwen_url <url-for-vllm>  --output_json  <output-json>  --model_name qwen
+python eval_pap.py  --dataset_path <path-to-json>    --qwen_url <url-for-vllm>  --output_json  <output-json>  --model_name qwen
 # For gpt model:
-python eval_pap.py   --output_json <output-json>  --model_name gpt
+python eval_pap.py  --dataset_path <path-to-json>    --output_json <output-json>  --model_name gpt
 # For InteractiveOmni:
-python eval_pap.py  --qwen_url <ckpt-path>     --output_json  <output_json>  --model_name io
+python eval_pap.py  --dataset_path <path-to-json>    --qwen_url <ckpt-path>     --output_json  <output_json>  --model_name io
 ```
 
 ### AutoDAN-Turbo Attack
@@ -73,10 +73,24 @@ cd llm
 git clone https://github.com/chujiezheng/chat_templates.git
 cd ..
 # For Qwen models using vllm:
-python test.py --target_model qwen  --output_file <output_json>  --api_url <url-for-vllm>
+python test.py --input_file <path-to-json> --target_model qwen  --output_file <output_json>  --api_url <url-for-vllm>
 # For gpt model:
-python test.py --target_model gpt  --output_file <output_json>
+python test.py --input_file <path-to-json> --target_model gpt  --output_file <output_json>
 # For InteractiveOmni:
-python test.py --target_model interactiveomni  --output_file <output_json>  --api_url <ckpt-path>
+python test.py --input_file <path-to-json> --target_model interactiveomni  --output_file <output_json>  --api_url <ckpt-path>
+```
+
+### Text Transferred Audio Attack
+
+```bash
+python generate_audio.py --json_path <text-attack-result-json> --output_json <output-json> --output_dir <output-dir-for-audio>
+python eval_audio_json.py --text_json <output-json-from-audio-generation> --output_json <final-output-json> --api_url <vllm-api-for-qwen-or-interactiveomni-ckpt>  --model_name <model_name>
+```
+
+### KL Estimation
+
+```bash
+# First extract representations following official Qwen/InteractiveOmni Transformer implementation and save the representations in an npz file.
+python kl_estimate.py --path <path-to-embedding.npz>  
 ```
 
