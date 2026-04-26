@@ -7,6 +7,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Generate audio from JSON prompts using OpenAI TTS.")
     parser.add_argument("--json_path", type=str, required=True,
                         help="Path to input JSON file.")
+    parser.add_argument("--output_json", type=str, required=True,
+                        help="Path to output JSON file.")
     parser.add_argument("--output_dir", type=str, required=True,
                         help="Directory to store generated audio.")
     parser.add_argument("--voice", type=str, default="alloy",
@@ -74,7 +76,7 @@ def main():
         results.append(entry)
     
     
-    output_json = args.json_path.replace(".json", "-audio.json")
+    output_json = args.output_json
     with open(output_json, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 

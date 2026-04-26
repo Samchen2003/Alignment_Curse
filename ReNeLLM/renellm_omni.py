@@ -315,7 +315,7 @@ if __name__ == "__main__":
     parser.add_argument('--judge_model', type=str, default="gpt-3.5-turbo", choices=["gpt-3.5-turbo", "gpt-4"], help='model uesd for harmful classification')
     parser.add_argument('--attack_model', type=str, default="qwen2.5-omni-7B", 
                         help='model to be attacked (victim model)')
-    parser.add_argument('--api_url', type=str, required=True, help='vllm service; pass in interactiveomni model checkpoint here when using this model.')
+    parser.add_argument('--api_url', type=str, help='vllm service; pass in interactiveomni model checkpoint here when using this model.')
     parser.add_argument('--iter_max', type=int, default=20, help='max iteration times')
     parser.add_argument('--rewrite_max', type=int, default=10, help='max rewrite times')
     parser.add_argument("--max_tokens", type=int, default=1024)

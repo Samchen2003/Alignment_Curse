@@ -180,7 +180,7 @@ def run(
 def main(argv):
     ap = argparse.ArgumentParser()
     ap.add_argument("--path", required=True, help="Path to embedding.npz")
-    ap.add_argument("--pd", required=True,  type=int, help="pca dimension")
+    ap.add_argument("--pd", type=int, default=15, help="pca dimension")
     args = ap.parse_args(argv)
 
     Z_text = []

@@ -170,7 +170,7 @@ if __name__ == "__main__":
     parser.add_argument("--input_json", default="data/advbench.json")
     parser.add_argument("--output_json", required=True, help="Output JSON path")
     parser.add_argument("--max_tokens", default=512, help="max tokens for llms")
-    parser.add_argument('--api_url', type=str, required=True, help='vllm service')
+    parser.add_argument('--api_url', type=str, help='vllm service')
     parser.add_argument('--model_name', type=str, default="qwen2.5-omni-7B", 
                     help='model to be attacked (victim model)')
     args = parser.parse_args()
