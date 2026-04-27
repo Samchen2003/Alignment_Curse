@@ -220,7 +220,7 @@ if __name__ == "__main__":
 
         print("IO model loaded!!!")
 
-        generation_config = dict(max_new_tokens=args.max_tokens, do_sample=True)
+        generation_config = dict(max_new_tokens=args.max_tokens, do_sample=False)
         
         args.model = model
         args.tokenizer = tokenizer

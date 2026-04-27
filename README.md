@@ -80,6 +80,30 @@ python test.py --input_file <path-to-json> --target_model gpt  --output_file <ou
 python test.py --input_file <path-to-json> --target_model interactiveomni  --output_file <output_json>  --api_url <ckpt-path>
 ```
 
+### VJ Attack
+
+```bash
+cd VJ
+# For Qwen models using vllm:
+python qwen.py --dataset <path-to-json> --prompt-audio-dir <audio-files-dir> --output-dir <output-dir> --model <model-name> --api-url <url-for-vllm>
+# For gpt model:
+python gpt.py --dataset <path-to-json> --original-audio-dir <audio-files-dir> --output-dir <output-dir>  --model <model-name>
+# For InteractiveOmni:
+python io.py --dataset <path-to-json> --model-path <ckpt-path> --prompt-audio-dir <audio-files-dir> --output-dir <output-dir>  --model <model-name>
+```
+
+### Speech Editing Attack
+You can use different TTS engines to generate different variations of the audio and pass in directory name and variation name.
+```bash
+cd SE
+# For Qwen models using vllm:
+python qwen.py --goal-target-path <path-to-json>  --model-name <model-name>  --api-url <url-for-vllm>     --variations-base <directory-for-audio-variations>  --variant-names <names-of-audio-variations>
+# For gpt model:
+python gpt.py --goal-target-path <path-to-json> --variations-base <directory-for-audio-variations>  --variant-names <names-of-audio-variations>
+# For InteractiveOmni:
+python io.py --goal-target-path <path-to-json> --model-name io  --model-path <ckpt-path>    --variations-base <directory-for-audio-variations>  --variant-names <names-of-audio-variations>
+```
+
 ### Text Transferred Audio Attack
 
 ```bash

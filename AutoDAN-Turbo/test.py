@@ -128,7 +128,7 @@ if __name__ == '__main__':
             trust_remote_code=True).eval().cuda()
         tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True, use_fast=True)
         print("IO model loaded !!!")
-        generation_config = dict(max_new_tokens=args.max_tokens, do_sample=True)
+        generation_config = dict(max_new_tokens=args.max_tokens, do_sample=False)
         target = TargetIO(model, tokenizer, generation_config)
 
         

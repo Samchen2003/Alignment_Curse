@@ -60,7 +60,7 @@ def main(args):
 
         print("model loaded!!!")
 
-        generation_config = dict(max_new_tokens=args.max_tokens, do_sample=True)
+        generation_config = dict(max_new_tokens=args.max_tokens, do_sample=False)
 
     operations = [shortenSentence, misrewriteSentence, changeOrder, addChar, languageMix, styleChange]
     scenarios = SCENARIOS
