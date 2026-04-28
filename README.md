@@ -104,6 +104,21 @@ python gpt.py --goal-target-path <path-to-json> --variations-base <directory-for
 python io.py --goal-target-path <path-to-json> --model-name io  --model-path <ckpt-path>    --variations-base <directory-for-audio-variations>  --variant-names <names-of-audio-variations>
 ```
 
+### SSJ Attack
+
+```bash
+cd SSJ
+# First generate audio based on the masked version of prompt
+python tts.py --base-dir <base-dir-for-audio> --masked-json <path-to-masked-json>  --output-json <output-json-path>
+# For Qwen models using vllm:
+python qwen.py --goal-target-path <path-to-original-json> --prompt-audio-dir <audio-output-json>  --model-name <model-name> --api-url <url-for-vllm>
+# For gpt model:
+python gpt.py --goal-target-path <path-to-original-json> --prompt-audio-dir <audio-output-json>
+# For InteractiveOmni:
+python io.py --goal-target-path <path-to-original-json> --prompt-audio-dir <audio-output-json> --model-path <ckpt-path>
+```
+
+
 ### Text Transferred Audio Attack
 
 ```bash
