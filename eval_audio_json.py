@@ -6,7 +6,7 @@ from pathlib import Path
 import requests
 from openai import OpenAI
 from strong_reject.evaluate import evaluate
-from prompts import SYSTEM_PROMPT_DEFAULT, test_prefixes
+from prefix import test_prefixes
 
 def get_model_response(audio_path, args):
     with open(audio_path, "rb") as f:
@@ -18,7 +18,6 @@ def get_model_response(audio_path, args):
             "temperature": 0,
             "max_tokens": args.max_tokens,
             "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT_DEFAULT},
                 {"role": "user", "content": [
                 {"type": "input_audio", "input_audio": {"data": b64, "format": "wav"}}
                 ]}

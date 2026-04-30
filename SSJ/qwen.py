@@ -3,7 +3,7 @@ import base64
 import json
 import time
 from pathlib import Path
-from prompts import SYSTEM_PROMPT_DEFAULT, test_prefixes
+from prefix import test_prefixes
 import requests
 from strong_reject.evaluate import evaluate as sr_evaluate
 
@@ -42,7 +42,6 @@ def call_vllm(
         "temperature": temperature,
         "max_tokens": max_tokens,
         "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT_DEFAULT},
             {
                 "role": "user",
                 "content": [

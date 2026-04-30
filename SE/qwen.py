@@ -7,8 +7,7 @@ import requests
 from openai import OpenAI
 from strong_reject.evaluate import evaluate as sr_evaluate
 from tqdm import tqdm
-from prompts import SYSTEM_PROMPT_DEFAULT, test_prefixes
-
+from prefix import test_prefixes
 
 
 def find_audio_by_index(variant_dir: Path, idx_patterns):
@@ -42,7 +41,6 @@ def call_vllm(audio_path: str, api_url: str, timeout: int, max_tokens: int) -> s
         "temperature": 0,
         "max_tokens": max_tokens,
         "messages": [
-            {"role": "system", "content": "You are a helpful assistant."},
             {
                 "role": "user",
                 "content": [

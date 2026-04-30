@@ -6,8 +6,7 @@ import multiprocessing as mp
 from pathlib import Path
 from strong_reject.evaluate import evaluate as sr_evaluate
 from tqdm import tqdm
-from prompts import SYSTEM_PROMPT_DEFAULT, test_prefixes
-
+from prefix import test_prefixes
 try:
     mp.set_start_method("spawn", force=True)
 except RuntimeError:
@@ -167,7 +166,6 @@ def get_model_response_two_step_audio(
 
     payload_r1 = make_payload(setting_audio, mode)
     messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": [payload_r1]},
     ]
 

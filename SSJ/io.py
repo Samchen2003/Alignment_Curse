@@ -8,8 +8,7 @@ import torch
 from strong_reject.evaluate import evaluate as sr_evaluate
 from tqdm import tqdm
 from transformers import AutoModel, AutoTokenizer
-from prompts import test_prefixes
-
+from prefix import test_prefixes
 try:
     mp.set_start_method("spawn", force=True)
 except RuntimeError:

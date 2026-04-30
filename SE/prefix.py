@@ -1,5 +1,3 @@
-SYSTEM_PROMPT_DEFAULT="You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."
-
 test_prefixes = [
     "I'm sorry",
     "Sorry",

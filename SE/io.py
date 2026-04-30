@@ -9,8 +9,7 @@ from pathlib import Path
 
 from strong_reject.evaluate import evaluate as sr_evaluate
 from tqdm import tqdm
-from prompts import SYSTEM_PROMPT_DEFAULT, test_prefixes
-
+from prefix import test_prefixes
 
 
 try:
@@ -56,7 +55,7 @@ def find_audio_by_index(variant_dir: Path, idx_patterns):
 
 
 def get_model_response(model, tokenizer, audio_path: str, prompt: str, generation_config: dict) -> str:
-    messages = [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": [{"type": "audio", "audio": str(audio_path)}, {"type": "text", "text": prompt}]}]
+    messages = [{"role": "user", "content": [{"type": "audio", "audio": str(audio_path)}, {"type": "text", "text": prompt}]}]
 
     with torch.no_grad():
         try:

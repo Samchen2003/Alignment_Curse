@@ -4,8 +4,6 @@ import requests
 from openai import OpenAI
 
 
-SYSTEM_PROMPT_DEFAULT="You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."
-
 class Target():
     '''
     Temporary implementation of Target class
@@ -34,7 +32,6 @@ class TargetQwen():
             "temperature": 0,
             "max_tokens": self.max_tokens,
             "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT_DEFAULT},
             {"role": "user", "content": [
                 {"type": "text", "text": prompt}
             ]}

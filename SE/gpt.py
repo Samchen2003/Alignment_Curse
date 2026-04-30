@@ -7,7 +7,7 @@ from pathlib import Path
 from openai import OpenAI
 from strong_reject.evaluate import evaluate as sr_evaluate
 from tqdm import tqdm
-from prompts import SYSTEM_PROMPT_DEFAULT, test_prefixes
+from prefix import test_prefixes
 
 
 

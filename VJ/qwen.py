@@ -8,8 +8,7 @@ import requests
 from strong_reject.evaluate import evaluate as sr_evaluate
 from tqdm import tqdm
 
-from prompts import SYSTEM_PROMPT_DEFAULT, test_prefixes
-
+from prefix import test_prefixes
 
 DEFAULT_SETTING_AUDIO_MAP = {
     "P1": "P1_setting.wav",
@@ -126,7 +125,6 @@ def call_vllm_two_step_audio(
         setting_b64 = base64.b64encode(f.read()).decode("utf-8")
 
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT_DEFAULT},
         {
             "role": "user",
             "content": [
