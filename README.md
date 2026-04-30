@@ -118,6 +118,19 @@ python gpt.py --goal-target-path <path-to-original-json> --prompt-audio-dir <aud
 python io.py --goal-target-path <path-to-original-json> --prompt-audio-dir <audio-output-json> --model-path <ckpt-path>
 ```
 
+### Dialogue Attack
+
+```bash
+cd DA
+# First generate audio based on the revised json
+# For Qwen models using vllm:
+python qwen.py --audio-dir <audio-dir> --revised-json <revised-json-path>  --goals-json <path-to-dataset-json> --api-url <url-for-vllm>
+# For gpt model:
+python gpt.py --audio-dir <audio-dir> --revised-json <revised-json-path>  --goals-json <path-to-dataset-json>
+# For InteractiveOmni:
+python io.py --audio-dir <audio-dir> --revised-json <revised-json-path>  --goals-json <path-to-dataset-json>  --model-path <path-to-ckpt>
+```
+
 
 ### Text Transferred Audio Attack
 
